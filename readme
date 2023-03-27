@@ -1,0 +1,70 @@
+LO1: Develop program logic to a professional working brief.
+
+LO2: Apply the stages of software development to develop a simple code solution.
+
+Scenario
+
+Help Desk Ticketing System Prototype
+
+Client Requirements
+
+The client would like a Help Desk ticketing system prototype developed.
+
+The Help Desk ticketing system should handle tickets from internal customers only.
+
+Tickets will be requested for assistance from the Help Desk by staff members of the organisation.
+
+Requirements of the Help Desk Ticketing System
+
+Tickets:
+
+    Tickets can be submitted by providing all of the following information:
+    Staff ID,
+    Ticket creator name,
+    Contact email
+    Description of the issue
+
+Internal Tickets’ ticket number should be assigned automatically using the counter static field plus 2000.
+
+All information must be provided as input while submitting the ticket.
+
+Responding to tickets:
+
+    If the ticket’s description of the issue contains the words “Password Change”, the new password should be generated following the rule,
+    The first two characters of the staffID, followed by the first three characters of the ticket creator name.
+
+Hint: (can be useful to consider: split(), join(), string operations)
+
+Once a member of the IT department provides the response to a ticket, the ticket should close, with the number of closed tickets increased and the number of open tickets reduced by 1. Ticket’s status should be changed to “Closed”.
+
+There should be an option for the IT department to reopen the ticket. At this point the number of open tickets should be increased and the number of closed tickets should be reduced by 1. Ticket’s status should be changed to “Reopened”
+
+Displaying the ticket:
+
+    There should be a way to display the ticket information:
+    Ticket number,
+    Name of the ticket’s creator,
+    StaffID,
+    Email address,
+    Description of the issue,
+    Response from the IT department and ticket status (open, closed or reopened).
+
+Technical Requirements
+
+The senior developer has provided you with the following technical requirements for the project.
+
+    The Ticket class should contain common ticket information in the Ticket class.
+    The Ticket class should also have method allowing the staff to submit ticket and the IT team to respond to the tickets, specifically resolve, reopen and provide a response to the ticket.
+    The Ticket class should contain a method for resolving password change requests. As well as calling the method that would generate the new password, it should set up a response for the ticket and change the ticket status to closed.
+    There should be a method to print information for all the ticket objects.
+
+             Hint: research and use List<Ticket>
+
+    The TicketStats method in Ticket class should contain information on ticket statistics and shall be able to return the statistics information.
+
+    The main class, containing the Main method.
+
+    Create at least one instance of submitting tickets and include at least one ticket with the request of “Password change”.
+
+    After the tickets are created, display ticket statistics.
+    Resolve some of the tickets, then display the ticket information and ticket statistics. o Reopen some of the resolved tickets, then display the ticket information and ticket statistics.
