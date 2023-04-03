@@ -1,56 +1,74 @@
 
 
-class Ticket():
+def Main():
     def __init__(self):
+        pass
+
+
+class Ticket():
+    ID = 2000
+    Ticket_list = list()
+    amount_open = 0  # keeping track of the amout of tickets open
+
+    def __init__(self, staff_ID, email, creator_name, description_issue):
 
         # values that gets inputed into the class
-        self.UID  # Ticket Number
-        self.staff_ID
-        self.creator_name  # Ticket Creator
-        self.email
-        self.description_issue
-        self.Response
-        self.ticket_status
+        self.UID = Ticket.ID
+        Ticket.ID += 1
 
-        # add to a list of tickets
+        self.staff_ID = staff_ID
+        self.creator_name = creator_name
+        self.email = email
+        self.description_issue = description_issue
+        self.response = self.password_change()
 
-        pass
+        self.ticket_status = "open"
+        Ticket.amount_open += 1
+        Ticket.Ticket_list.append(self)
 
     # The first two characters of the staffID, followed by the first three characters of the ticket creator name.
-    def password_change():
+    def password_change(self):
+        if self.description_issue.lower() == "password change":
+            pasword = self.staff_ID[:2]
+            pasword += self.creator_name[:3]
+            return pasword
+        else:
+            return "not yet provided"
 
-        pass
+    def Resolve(self, response):
+        self.response = response
+        self.close()
 
-    def resolve():
-        pass
+    def close(self):
+        self.ticket_status = "closed"
+        Ticket.amount_open -= 1
 
-    def respond():
-        pass
+    def reopen(self):
+        self.ticket_status = "reopened"
+        Ticket.amount_open += 1
 
-    def Closed():
-        pass
+    def ticket_info(self):
+        info = f"Ticket number: {self.UID}\n"
+        info += f"Ticket creator: {self.creator_name}\n"
+        info += f"Staff ID: {self.staff_ID}\n"
+        info += f"Desctiption: {self.description_issue}\n"
+        info += f"ticket status: {self.ticket_status}"
+        return info
 
-    def open():
-        pass
-
-    def reopen():
-        pass
+    def ticket_info_all(self):
+        info = "--- Ticket Statistics ---\n"
+        info += self.TicketStats + "\n"
+        info += "------ Ticket Print ------"
+        for ticket in Ticket.Ticket_list:
+            info += ticket.ticket_info() + "\n\n"
+        return info
 
     def TicketStats():
-        # prints all Tickets to conlsole with all there info
-        """
-        Tickets Created: 3
-        Tickets Resolved: 1
-        Tickets To Solve: 2
+        stats = f"Tickets Created: {len(Ticket.Ticket_list)}\n"
+        stats += f"Tickets Resolved: {Ticket.amount_open}\n"
+        stats += f"Tickets to sovle: {len(Ticket.Ticket_list)- Ticket.amount_open}\n"
+        return stats
 
-        Printing Tickets:
-        Ticket Number: 2001
-        Ticket Creator: Inna
-        Staff ID: INNAM
-        Email Address: inna@whitecliffe.co.nz
-        Description: My monitor stopped working
-        Response: Not Yet Provided
-        Ticket Status: Open
 
-        """
-        pass
+if __name__ == "__main__":
+    Main()
