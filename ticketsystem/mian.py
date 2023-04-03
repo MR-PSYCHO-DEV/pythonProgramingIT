@@ -2,7 +2,35 @@
 
 def Main():
     def __init__(self):
-        pass
+        while True:
+            user_input = input("input a number:")
+
+            match user_input:
+                case 1:  # make a ticket
+                    staff_ID = input("input staff ID")
+                    email = input("input email")
+                    creator_name = input("input creator_name")
+                    description_issue = input(
+                        "give a description of the issue: ")
+                    Ticket(staff_ID, email, creator_name, description_issue)
+
+                case 2:  # print stats of all tickets
+                    print(Ticket.ticket_info_all())
+
+                case 3:
+                    # print stats of a ticket
+                    pass
+                case 4:
+                    # add response to ticket
+                    pass
+                case 5:
+                    # close a ticket
+                    pass
+                case 6:
+                    # exit program
+                    pass
+                case _:
+                    print("something went wrong :( ")
 
 
 class Ticket():
