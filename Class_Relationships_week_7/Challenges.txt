@@ -1,0 +1,11 @@
+Write a Python function that takes two lists and returns True if they have at least one common member.
+
+Write a Python function to return the list of words that are longer than n from a given list of words.
+
+Write a program that takes user input string and converts it to Morse.
+
+Write a Python program to shuffle and print a stored list. Hint, research and use:
+
+from random import shuffle
+
+You may use any other approach instead including the use of the random( ) method.
