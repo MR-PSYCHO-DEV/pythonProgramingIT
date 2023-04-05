@@ -3,6 +3,7 @@
 class Main():
     def __init__(self):
         options = """
+--------- Options ---------
 input number to what you want to do: 
 1 : make a ticket
 2 : print stats of all tickets
@@ -19,9 +20,9 @@ input number to what you want to do:
 
             match user_input:
                 case "1":  # make a ticket
-                    staff_ID = input("input staff ID")
-                    email = input("input email")
-                    creator_name = input("input creator_name")
+                    staff_ID = input("input staff ID: ")
+                    email = input("input email: ")
+                    creator_name = input("input your name: ")
                     description_issue = input(
                         "give a description of the issue: ")
                     Ticket(staff_ID, email, creator_name, description_issue)
@@ -72,8 +73,8 @@ class Ticket():
     def __init__(self, staff_ID, email, creator_name, description_issue):
 
         # giving ticket a UID and adding one to ID
-        self.UID = Ticket.ID
         Ticket.ID += 1
+        self.UID = Ticket.ID
 
         # inputed values
         self.staff_ID = staff_ID
@@ -119,11 +120,11 @@ class Ticket():
 
     # returns string of info of all the tickets
     def ticket_info_all():
-        info = "--- Ticket Statistics ---\n"
-        info += Ticket.TicketStats + "\n"
-        info += "------ Ticket Print ------"
+        info = "---- Ticket Statistics ----\n"
+        info += Ticket.TicketStats() + "\n"
+        info += "------ Ticket Print ------\n"
         for ticket in Ticket.Ticket_list:
-            info += ticket.ticket_info() + "\n\n"
+            info += ticket.ticket_info() + "\n"
         return info
 
     # retuns string of amout of tickets, amount open, amount closed
