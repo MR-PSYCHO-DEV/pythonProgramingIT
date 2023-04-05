@@ -4,6 +4,7 @@ Write a Python function to return the list of words that are longer than n from 
 so if it sorts words and returns the works longer than n 
 
 Write a program that takes user input string and converts it to Morse.
+(we get given a dict that is copy and pasted in)
 
 Write a Python program to shuffle and print a stored list. Hint, research and use:
 
