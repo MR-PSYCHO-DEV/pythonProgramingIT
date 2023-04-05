@@ -2,8 +2,19 @@
 
 class Main():
     def __init__(self):
+        options = """
+input number to what you want to do: 
+1 : make a ticket
+2 : print stats of all tickets
+3 : print stats fo a ticket
+4 : responed to a ticket 
+5 : close a ticket
+6 : reopen a ticket
+7 : exit program (all data will be lost :(
+            """
         while True:
 
+            print(options)
             user_input = input("input a number:")
 
             match user_input:
@@ -33,8 +44,12 @@ class Main():
                     print("closing a ticket")
                     ticket = self.find()
                     ticket.close()
+                case "6":  # reopen tickets
+                    print("reopening a ticket")
+                    ticket = self.find()
+                    ticket.reopen
 
-                case "6":  # exit program
+                case "7":  # exit program
                     exit()
 
                 case _:  # if user doesn't inputs wrong
@@ -47,14 +62,6 @@ class Main():
         UID -= 2001
         ticket = Ticket.Ticket_list[UID]
         return ticket
-
-        """
-        #Linear Search "slow when there is alot of tickets but still good"
-        for ticket in Ticket.Ticket_list:
-            if ticket.UID == user_input:
-                print(ticket.ticket_info())
-                break
-        """
 
 
 class Ticket():
@@ -111,9 +118,9 @@ class Ticket():
         return info
 
     # returns string of info of all the tickets
-    def ticket_info_all(self):
+    def ticket_info_all():
         info = "--- Ticket Statistics ---\n"
-        info += self.TicketStats + "\n"
+        info += Ticket.TicketStats + "\n"
         info += "------ Ticket Print ------"
         for ticket in Ticket.Ticket_list:
             info += ticket.ticket_info() + "\n\n"
