@@ -128,7 +128,7 @@ ticket2 = Ticket("bob", "bob@email.com", "bob", "computer is working")
 print(ticket2.ticket_info())"""
 
 
-class Ticket():
+"""class Ticket():
     Ticket_list = ["ticket2001", "ticket2002", "ticket2003"]
 
     def find(UID=None):
@@ -147,4 +147,4 @@ print(Ticket.find())
 print(Ticket.find())
 print(Ticket.find())
 print(Ticket.find())
-print(Ticket.find())
+print(Ticket.find())"""

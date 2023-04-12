@@ -1,5 +1,3 @@
-
-
 class Main():
     def __init__(self):
         options = """
@@ -155,5 +153,4 @@ class Ticket():
 
 
 if __name__ == "__main__":
-
     Main()
