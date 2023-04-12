@@ -4,11 +4,11 @@ class Main():
     def __init__(self):
         options = """
 --------- Options ---------
-input number to what you want to do: 
+input number to what you want to do:
 1 : make a ticket
 2 : print stats of all tickets
 3 : print stats fo a ticket
-4 : responed to a ticket 
+4 : responed to a ticket
 5 : close a ticket
 6 : reopen a ticket
 7 : exit program (all data will be lost :(
@@ -33,22 +33,35 @@ input number to what you want to do:
                 case "3":  # print stats of a ticket
                     print("Printing ticket info")
                     ticket = self.find()
-                    print(ticket.ticket_info())
+                    if ticket != None:
+                        print(ticket.ticket_info())
+                    else:
+                        print("There is no Ticket with that ID")
 
                 case "4":  # add response to ticket
                     print("--- adding a response to a ticket ---")
                     ticket = self.find()
-                    response = input("input the response: ")
-                    ticket.resolve(response)
+                    if ticket != None:
+                        response = input("input the response: ")
+                        ticket.resolve(response)
+                    else:
+                        print("There is no Ticket with that ID")
 
                 case "5":  # close a ticket
                     print("--- closing a ticket ---")
                     ticket = self.find()
-                    ticket.close()
+                    if ticket != None:
+                        ticket.close()
+                    else:
+                        print("There is no Ticket with that ID")
+
                 case "6":  # reopen tickets
                     print("--- reopening a ticket ---")
                     ticket = self.find()
-                    ticket.reopen
+                    if ticket != None:
+                        ticket.reopen()
+                    else:
+                        print("There is no Ticket with that ID")
 
                 case "7":  # exit program
                     exit()
@@ -57,8 +70,8 @@ input number to what you want to do:
                     print("that is not one of the options :(")
 
     # this is to find a ticket because ticket ID starts at 2000 with first ticket being 2001
-    def find(UID=None):
 
+    def find(self, UID=None):
         if UID is None:
             UID = int(input("input ID: "))
         UID -= 2001
