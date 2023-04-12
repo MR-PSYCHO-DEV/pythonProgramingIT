@@ -81,10 +81,9 @@ class Ticket():
         self.creator_name = creator_name
         self.email = email
         self.description_issue = description_issue
-        self.response = self.password_change()
-
         self.ticket_status = "open"
         Ticket.amount_open += 1
+        self.response = self.password_change()
         Ticket.Ticket_list.append(self)
 
     # The first two characters of the staffID, followed by the first three characters of the ticket creator name.
@@ -93,7 +92,8 @@ class Ticket():
             pasword = self.staff_ID[:2]  # first two characters of the staffID
             # first three characters of the ticket creator name
             pasword += self.creator_name[:3]
-            return pasword
+            self.close()
+            return "password change: " + pasword
         else:
             return "not yet provided"
 
@@ -114,7 +114,9 @@ class Ticket():
         info = f"Ticket number: {self.UID}\n"
         info += f"Ticket creator: {self.creator_name}\n"
         info += f"Staff ID: {self.staff_ID}\n"
+        info += f"Email address: {self.email}\n"
         info += f"Desctiption: {self.description_issue}\n"
+        info += f"response: {self.response}\n"
         info += f"ticket status: {self.ticket_status}"
         return info
 
@@ -124,7 +126,7 @@ class Ticket():
         info += Ticket.TicketStats() + "\n"
         info += "------ Ticket Print ------\n"
         for ticket in Ticket.Ticket_list:
-            info += ticket.ticket_info() + "\n"
+            info += ticket.ticket_info() + "\n\n"
         return info
 
     # retuns string of amout of tickets, amount open, amount closed
@@ -136,4 +138,5 @@ class Ticket():
 
 
 if __name__ == "__main__":
+
     Main()
