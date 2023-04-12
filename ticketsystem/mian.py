@@ -36,17 +36,17 @@ input number to what you want to do:
                     print(ticket.ticket_info())
 
                 case "4":  # add response to ticket
-                    print("adding a response to a ticket")
+                    print("--- adding a response to a ticket ---")
                     ticket = self.find()
                     response = input("input the response: ")
                     ticket.resolve(response)
 
                 case "5":  # close a ticket
-                    print("closing a ticket")
+                    print("--- closing a ticket ---")
                     ticket = self.find()
                     ticket.close()
                 case "6":  # reopen tickets
-                    print("reopening a ticket")
+                    print("--- reopening a ticket ---")
                     ticket = self.find()
                     ticket.reopen
 
@@ -57,12 +57,16 @@ input number to what you want to do:
                     print("that is not one of the options :(")
 
     # this is to find a ticket because ticket ID starts at 2000 with first ticket being 2001
-    def find(self, UID=None):
+    def find(UID=None):
+
         if UID is None:
-            UID = int(input("input ID"))
+            UID = int(input("input ID: "))
         UID -= 2001
-        ticket = Ticket.Ticket_list[UID]
-        return ticket
+        if UID >= 0 and UID < len(Ticket.Ticket_list):
+            ticket = Ticket.Ticket_list[UID]
+            return ticket
+        else:
+            return None
 
 
 class Ticket():

@@ -98,7 +98,7 @@ print(ticket3.amount_open, ticket3.response, ticket3.ticket_status)
 """
 
 
-class Ticket():
+"""class Ticket():
 
     def __init__(self, staff_ID, email, creator_name, description_issue):
         self.UID = 2000
@@ -125,4 +125,26 @@ ticket1 = Ticket("jay", "jay@email.com", "jay", "computer not working")
 print(ticket1.ticket_info())
 
 ticket2 = Ticket("bob", "bob@email.com", "bob", "computer is working")
-print(ticket2.ticket_info())
+print(ticket2.ticket_info())"""
+
+
+class Ticket():
+    Ticket_list = ["ticket2001", "ticket2002", "ticket2003"]
+
+    def find(UID=None):
+
+        if UID is None:
+            UID = int(input("input ID: "))
+        UID -= 2001
+        if UID >= 0 and UID < len(Ticket.Ticket_list):
+            ticket = Ticket.Ticket_list[UID]
+            return ticket
+        else:
+            return None
+
+
+print(Ticket.find())
+print(Ticket.find())
+print(Ticket.find())
+print(Ticket.find())
+print(Ticket.find())
