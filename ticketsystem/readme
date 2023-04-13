@@ -1,3 +1,11 @@
 how to use:
-install python 3.10.9 or above 
+install python 3.10.9 or above
 then run main.py
+input a number from the given options
+1 : make a ticket
+2 : print stats of all tickets
+3 : print stats fo a ticket
+4 : responed to a ticket
+5 : close a ticket
+6 : reopen a ticket
+7 : exit program (all data will be lost :(

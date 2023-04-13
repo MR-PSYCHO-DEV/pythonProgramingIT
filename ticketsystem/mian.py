@@ -65,7 +65,7 @@ input number to what you want to do:
                     exit()
 
                 case _:  # if user doesn't inputs wrong
-                    print("that is not one of the options :(")
+                    print("that is not one of the options")
 
     # this is to find a ticket because ticket ID starts at 2000 with first ticket being 2001
 
